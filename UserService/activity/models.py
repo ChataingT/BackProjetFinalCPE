@@ -9,6 +9,7 @@ class Activity(models.Model):
     userPk = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     activityType = models.IntegerField()
     startTime = models.DateTimeField()
+    duration = models.DurationField
     
     def __str__(self):
         return self.activityType
