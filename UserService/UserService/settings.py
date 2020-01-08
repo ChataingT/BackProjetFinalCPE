@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework', # to create an API  Rest
     'users.apps.UsersConfig', # to overwrite the existing user
     'activity.apps.ActivityConfig',
 ]
@@ -125,4 +126,45 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'users.CustomUser' # ref to the new customer for django
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+REST_FRAMEWORK = {
+        'DEFAULT_PERMISSION_CLASSES' : [
+            'rest_framework.permissions.IsAuthenticated'
+        ],
+        }
+
+LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {
+                'verbose':{
+                        'format': '{levelname} {asctime} {module} {message}',
+                        'style': '{', #}
+                        },
+                'simple': {
+                        'format': '{levelname} {message}',
+                        'style': '{', #}
+                        },
+                },
+        'filters': {
+                'require_debug_true': {
+                        '()': 'django.utils.log.RequireDebugTrue',
+                        },
+                },
+        'handlers': {
+                'console': {
+                        'level': 'INFO',
+                        'filters': ['require_debug_true'],
+                        'class': 'logging.StreamHandler',
+                        'formatter': 'simple'
+                        },
+                },
+        'loggers': {
+                'django': {
+                        'handlers': ['console'],
+                        'propagate': True,
+                        },
+                
+                },
+        }
 
