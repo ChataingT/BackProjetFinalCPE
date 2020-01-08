@@ -1,12 +1,12 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import DjangoModelPermissions
 
-from rest_framework.views import APIView
+from .serializers import ActivitySerializer
+from .models import Activity
 
-
-class update_activity(APIView):
-    def new_activity(self, request):
-        if request.method == 'POST':
-            pass
-        else:
-            pass
-# Create your views here.
+@permission_classes([DjangoModelPermissions]) 
+class ActivityViewSet(viewsets.ModelViewSet):
+    queryset = Activity.objects.all().order_by('activityType')
+    serializer_class = ActivitySerializer
+    
