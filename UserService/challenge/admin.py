@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Planning
+from .models import Challenge
 
-admin.site.register(Planning)
+admin.site.register(Challenge)
 
 # Register your models here.

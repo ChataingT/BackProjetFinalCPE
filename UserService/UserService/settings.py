@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework', # to create an API  Rest
     'users.apps.UsersConfig', # to overwrite the existing user
     'activity.apps.ActivityConfig',
-    'planning.apps.PlanningConfig',
+    'notification.apps.NotificationConfig',
+    'challenge.apps.ChallengeConfig',
 ]
 
 
