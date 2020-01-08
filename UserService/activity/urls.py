@@ -8,5 +8,5 @@ router.registry.extend(userRouter.registry)
 router.register(r'activity', views.ActivityViewSet, basename='activity')
 
 urlpatterns = [
-        path(r'', include(router.urls)),
+#        path(r'', include(router.urls)), do not uncomment, done in planning/urls.py
         ]

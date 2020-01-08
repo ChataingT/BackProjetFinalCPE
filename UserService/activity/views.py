@@ -7,6 +7,6 @@ from .models import Activity
 
 @permission_classes([DjangoModelPermissions]) 
 class ActivityViewSet(viewsets.ModelViewSet):
-    queryset = Activity.objects.all().order_by('activityType')
+    queryset = Activity.objects.all().order_by('startTime')
     serializer_class = ActivitySerializer
     
