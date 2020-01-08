@@ -1,8 +1,12 @@
-from django.urls import path
-
+from django.urls import path, include
+from rest_framework import routers
 from . import views
-"""
-urlpattern = [
-        path('', views.update_activity, name='index'),
+from users.urls import router as userRouter
+
+router = routers.DefaultRouter()
+router.registry.extend(userRouter.registry)
+router.register(r'activity', views.ActivityViewSet, basename='activity')
+
+urlpatterns = [
+        path(r'', include(router.urls)),
         ]
-"""
