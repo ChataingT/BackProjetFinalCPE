@@ -17,4 +17,4 @@ class Challenge(models.Model):
 
     
     def __str__(self):
-        return str((self.notifId, self.sendTime))
+        return str((self.userPk, self.duration, self.difficulty, self.length, self.effortType, self.completion))

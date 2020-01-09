@@ -12,4 +12,4 @@ class Activity(models.Model):
     duration = models.DurationField
     
     def __str__(self):
-        return self.activityType
+        return str(self.activityType)
